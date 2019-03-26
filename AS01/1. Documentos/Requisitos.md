@@ -1,7 +1,7 @@
 
 ##Requisitos do sistema##
 
-###A.001 - O sistema deve ser capaz de cadastrar e manter alunos ###
+###A.001 - O sistema deve ser capaz de cadastrar e manter alunos###
 
 ###A.002 - O sistema deve permitir atribuir notas para alunos###
 
