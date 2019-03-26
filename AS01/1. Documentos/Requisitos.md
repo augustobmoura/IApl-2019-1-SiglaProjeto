@@ -1,5 +1,5 @@
 
-##Requisitos do sistema##
+##Requisitos do sistema
 
 ###A.001 - O sistema deve ser capaz de cadastrar e manter alunos###
 
