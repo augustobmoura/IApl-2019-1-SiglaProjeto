@@ -1,11 +1,15 @@
 package br.uf.es.iapl.turmas.dominio;
 
-import br.uf.es.iapl.turmas.leitor.Legivel;
-
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-public abstract class Pessoa<T extends Pessoa> implements Legivel<T> {
+public abstract class Pessoa {
+
+  @Id
+  @GeneratedValue
+  private Long id;
 
   @NotNull
   private String nome;
@@ -16,6 +20,14 @@ public abstract class Pessoa<T extends Pessoa> implements Legivel<T> {
 
   @NotNull
   private String cpf;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public String getNome() {
     return nome;

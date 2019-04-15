@@ -1,12 +1,13 @@
-package br.uf.es.iapl.turmas.leitor.impl;
+package br.uf.es.iapl.turmas.serializador.fixedlentxt.impl;
 
-import br.uf.es.iapl.turmas.leitor.LeitorDados;
+import br.uf.es.iapl.turmas.serializador.fixedlentxt.SerializadorFixedLength;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public abstract class LeitorEntidade<T> implements LeitorDados<T> {
+public abstract class SerializadorFLEntidade<T> implements SerializadorFixedLength<T> {
 
   abstract T objetoBase();
 
@@ -20,24 +21,15 @@ public abstract class LeitorEntidade<T> implements LeitorDados<T> {
   public final T lerDeLinha(final String linha) {
     final Queue<String> valores = new LinkedList<>();
 
-    String valorAtual;
-    String restoDaLinha = linha;
+    int i = 0;
 
     for (final DescritorDeValores descritor : descritores()) {
       final int tamanhoValor = descritor.getTamanho();
 
-      valorAtual = restoDaLinha.length() > tamanhoValor
-          ? restoDaLinha
-          : restoDaLinha.substring(0, tamanhoValor - 1);
+      final String valorAtual = StringUtils.substring(linha, i, i + tamanhoValor - 1);
+      i = tamanhoValor;
 
-      restoDaLinha = restoDaLinha.length() > tamanhoValor
-          ? "" : restoDaLinha.substring(tamanhoValor - 1);
-
-      valores.add(valorAtual);
-
-      if (restoDaLinha.isEmpty()) {
-        break;
-      }
+      valores.add(valorAtual.trim());
     }
 
     return valoresTextoParaEntidade(objetoBase(), valores);
@@ -53,7 +45,7 @@ public abstract class LeitorEntidade<T> implements LeitorDados<T> {
       final String valor = valores.get(i);
       final DescritorDeValores descritor = descritores.get(i);
 
-      builderLinha.append(valor.substring(0, descritor.getTamanho() - 1));
+      builderLinha.append(StringUtils.rightPad(valor, descritor.getTamanho(), ' '));
     }
 
     return builderLinha.toString();

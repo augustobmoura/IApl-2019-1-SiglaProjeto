@@ -1,4 +1,4 @@
-package br.uf.es.iapl.turmas.leitor.impl;
+package br.uf.es.iapl.turmas.serializador.fixedlentxt.impl;
 
 import br.uf.es.iapl.turmas.dominio.Aluno;
 
@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Queue;
 
-public class LeitorAluno extends LeitorPessoa<Aluno> {
+public class SerializadorFLAluno extends SerializadorFLPessoa<Aluno> {
 
   @Override
   Aluno objetoBase() {
