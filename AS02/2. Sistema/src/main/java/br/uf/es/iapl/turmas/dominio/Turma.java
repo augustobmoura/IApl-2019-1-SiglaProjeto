@@ -1,21 +1,33 @@
 package br.uf.es.iapl.turmas.dominio;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
 public class Turma {
 
+  @Id
+  @GeneratedValue
+  private Long id;
+
   @NotNull
   private String nome;
 
   @NotNull
+  @ManyToOne
   private Professor professor;
 
   @ManyToMany
   private Set<Aluno> alunos;
+
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   public String getNome() {
     return nome;

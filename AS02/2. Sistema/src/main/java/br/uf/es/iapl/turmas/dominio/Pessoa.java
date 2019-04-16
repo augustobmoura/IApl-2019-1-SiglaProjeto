@@ -1,15 +1,10 @@
 package br.uf.es.iapl.turmas.dominio;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-public abstract class Pessoa {
-
-  @Id
-  @GeneratedValue
-  private Long id;
+public abstract class Pessoa implements Serializable {
 
   @NotNull
   private String nome;
@@ -21,13 +16,9 @@ public abstract class Pessoa {
   @NotNull
   private String cpf;
 
-  public Long getId() {
-    return id;
-  }
+  abstract public Long getId();
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+  abstract public void setId(final Long id);
 
   public String getNome() {
     return nome;
