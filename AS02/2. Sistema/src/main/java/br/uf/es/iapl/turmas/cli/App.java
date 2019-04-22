@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 public class App {
 
   public static void main(String[] args) {
-    disableLogging();
+//    disableLogging();
 
     final EntityManagerFactory emFactory = Persistence
         .createEntityManagerFactory("org.hibernate.tutorial.jpa");
@@ -19,7 +19,9 @@ public class App {
     final RepositorioAluno repositorioAluno =
         new RepositorioAluno(emFactory.createEntityManager());
 
-    System.out.println(repositorioAluno.encontrarTodosAlunos());
+    final OpcoesLinhaComando opcoesLinhaComando = new OpcoesLinhaComando(args);
+
+
   }
 
   private static void disableLogging() {
