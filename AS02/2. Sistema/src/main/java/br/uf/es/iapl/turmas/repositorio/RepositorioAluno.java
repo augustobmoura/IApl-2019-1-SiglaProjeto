@@ -28,7 +28,7 @@ public class RepositorioAluno {
     try {
       entityManager.getTransaction().begin();
 
-      entityManager.persist(aluno);
+      entityManager.merge(aluno);
 
       entityManager.getTransaction().commit();
     } catch (final Throwable e) {

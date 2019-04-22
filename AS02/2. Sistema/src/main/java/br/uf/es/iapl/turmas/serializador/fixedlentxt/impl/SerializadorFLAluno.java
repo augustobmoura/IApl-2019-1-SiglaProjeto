@@ -31,7 +31,7 @@ public class SerializadorFLAluno extends SerializadorFLPessoa<Aluno> {
 
   @Override
   List<DescritorDeValores> descritores() {
-    final List<DescritorDeValores> valores = super.descritores();
+    final List<DescritorDeValores> valores = new ArrayList<>(super.descritores());
     valores.add(new DescritorDeValores(128));
 
     return valores;

@@ -12,8 +12,8 @@ public abstract class SerializadorFLPessoa<T extends Pessoa> extends Serializado
   T valoresTextoParaEntidade(T base, Queue<String> valores) {
     base.setId(Long.parseLong(valores.remove()));
     base.setNome(valores.remove());
-    base.setIdade(Integer.parseInt(valores.remove()));
     base.setCpf(valores.remove());
+    base.setIdade(Integer.parseInt(valores.remove()));
 
     return base;
   }
@@ -23,8 +23,8 @@ public abstract class SerializadorFLPessoa<T extends Pessoa> extends Serializado
     return Arrays.asList(
         entidade.getId().toString(),
         entidade.getNome(),
-        entidade.getIdade().toString(),
-        entidade.getCpf()
+        entidade.getCpf(),
+        entidade.getIdade().toString()
     );
   }
 

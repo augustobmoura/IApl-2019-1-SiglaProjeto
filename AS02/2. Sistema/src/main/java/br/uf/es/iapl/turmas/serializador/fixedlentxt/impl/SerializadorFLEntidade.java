@@ -27,7 +27,7 @@ public abstract class SerializadorFLEntidade<T> implements SerializadorFixedLeng
       final int tamanhoValor = descritor.getTamanho();
 
       final String valorAtual = StringUtils.substring(linha, i, i + tamanhoValor - 1);
-      i = tamanhoValor;
+      i += tamanhoValor;
 
       valores.add(valorAtual.trim());
     }

@@ -12,6 +12,7 @@ plugins {
 
   // Apply the application plugin to add support for building an application
   id 'application'
+  id 'com.github.johnrengelman.shadow' version '5.0.0'
 }
 
 repositories {
@@ -36,5 +37,7 @@ dependencies {
   testImplementation 'junit:junit:4.12'
 }
 
+final String principal = 'br.uf.es.iapl.turmas.cli.App'
+
 // Define the main class for the application
-mainClassName = 'turmas.App'
+mainClassName = principal
