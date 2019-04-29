@@ -1,9 +1,6 @@
 package br.uf.es.iapl.turmas.cli;
 
-import br.uf.es.iapl.turmas.dominio.Entidade;
-import br.uf.es.iapl.turmas.dominio.Pessoa;
-import br.uf.es.iapl.turmas.dominio.Professor;
-import br.uf.es.iapl.turmas.dominio.Turma;
+import br.uf.es.iapl.turmas.dominio.*;
 
 import java.io.File;
 import java.util.*;
@@ -11,7 +8,7 @@ import java.util.*;
 public class OpcoesLinhaComando {
 
   private static final Map<String, Class<? extends Entidade>> classesPorTabela = Map.of(
-      "aluno", Pessoa.class,
+      "aluno", Aluno.class,
       "professor", Professor.class,
       "turma", Turma.class
   );
@@ -37,6 +34,8 @@ public class OpcoesLinhaComando {
           input = Optional.of(valor).map(File::new);
       }
     }
+
+    validate();
   }
 
   private void lerTabela(final Queue<String> pilha) {
@@ -66,6 +65,12 @@ public class OpcoesLinhaComando {
     }
 
     tabelaAlvo = tabelaEscolhida;
+  }
+
+  public void validate() {
+    if (tabelaAlvo == null) {
+      throw new IllegalArgumentException("Tabela alvo do programa não passada como argumento");
+    }
   }
 
   public Optional<File> getInput() {
