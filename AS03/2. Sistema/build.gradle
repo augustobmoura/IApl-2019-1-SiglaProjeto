@@ -33,6 +33,9 @@ dependencies {
   implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
   implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.2.Final'
 
+  // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+  implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
+
   // Use JUnit test framework
   testImplementation 'junit:junit:4.12'
 }
