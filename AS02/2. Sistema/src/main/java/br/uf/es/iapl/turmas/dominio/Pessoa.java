@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @MappedSuperclass
-public abstract class Pessoa implements Serializable {
+public abstract class Pessoa implements Serializable, Entidade<Long> {
 
   @Id
   @GeneratedValue(generator = "increment")

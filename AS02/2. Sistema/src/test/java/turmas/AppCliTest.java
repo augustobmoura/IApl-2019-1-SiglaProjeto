@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
 
-public class AppTest {
+public class AppCliTest {
   @Test
   public void testAppHasAGreeting() {
     App classUnderTest = new App();

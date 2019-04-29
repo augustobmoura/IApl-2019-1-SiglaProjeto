@@ -5,7 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 @Entity
-public class Turma {
+public class Turma implements Entidade<Long> {
 
   @Id
   @GeneratedValue

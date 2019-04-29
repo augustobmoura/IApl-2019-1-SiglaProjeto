@@ -16,4 +16,5 @@ public class Professor extends Pessoa {
   public void setEspecialidade(String especialidade) {
     this.especialidade = especialidade;
   }
+
 }
