@@ -2,6 +2,7 @@
 
 ## Classes:
 ### Pessoa
+![alt text](https://github.com/augustobmoura/IApl-2019-1-TURMA/blob/master/AS02/1.%20Documentos/FormatoCampos/CampoPessoa.png)
 Uma pessoa é uma classe genérica que é extendida por outras, cada pessoa possui os atributos:
 - Identificador (Float - Valor Incremental); Tamanho - 32 caracteres.
 - Nome (String); Tamanho - 128 caracteres.
