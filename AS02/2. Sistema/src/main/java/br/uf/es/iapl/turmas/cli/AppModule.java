@@ -2,6 +2,7 @@ package br.uf.es.iapl.turmas.cli;
 
 import br.uf.es.iapl.turmas.repositorio.Repositorio;
 import br.uf.es.iapl.turmas.serializador.fixedlentxt.SerializadorFactory;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -10,25 +11,28 @@ import java.util.Optional;
 
 public class AppModule {
 
-  final EntityManagerFactory emFactory;
+  private final EntityManagerFactory emFactory;
 
-  final Repositorio repositorio;
+  private final Repositorio repositorio;
 
-  final SerializadorFactory serializadorFactory;
+  private final SerializadorFactory serializadorFactory;
 
-  final OpcoesLinhaComando opcoesLinhaComando;
-  final Optional<File> entrada;
+  private final OpcoesLinhaComando opcoesLinhaComando;
+  private final Optional<File> entrada;
 
-  final Class classe;
+  private final Class classe;
+
+  private final ObjectMapper jsonMapper;
 
   public AppModule(final String[] args) {
+    opcoesLinhaComando = new OpcoesLinhaComando(args);
     emFactory = Persistence
         .createEntityManagerFactory("org.hibernate.tutorial.jpa");
     repositorio = new Repositorio(emFactory.createEntityManager());
     serializadorFactory = new SerializadorFactory(repositorio);
-    opcoesLinhaComando = new OpcoesLinhaComando(args);
     entrada = opcoesLinhaComando.getInput();
     classe = opcoesLinhaComando.getTabelaAlvo();
+    jsonMapper = new ObjectMapper();
   }
 
   public EntityManagerFactory getEmFactory() {
@@ -53,5 +57,9 @@ public class AppModule {
 
   public Class getClasse() {
     return classe;
+  }
+
+  public ObjectMapper getJsonMapper() {
+    return jsonMapper;
   }
 }

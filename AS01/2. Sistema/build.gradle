@@ -21,9 +21,6 @@ repositories {
   jcenter()
 }
 
-sourceCompatibility = 11
-targetCompatibility = 11
-
 dependencies {
   // This dependency is found on compile classpath of this component and consumers.
   implementation 'com.google.guava:guava:27.0.1-jre'
@@ -36,9 +33,6 @@ dependencies {
   implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.9'
   implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.2.Final'
 
-  // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-xml
-  implementation group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.9.8'
-
   // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
   implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.9.8'
 
@@ -46,7 +40,7 @@ dependencies {
   testImplementation 'junit:junit:4.12'
 }
 
-final String principal = 'br.uf.es.iapl.turmas.cli.AppJson'
+final String principal = 'br.uf.es.iapl.turmas.cli.App'
 
 // Define the main class for the application
 mainClassName = principal

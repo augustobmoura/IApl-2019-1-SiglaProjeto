@@ -1,6 +1,9 @@
 package br.uf.es.iapl.turmas.cli;
 
-import br.uf.es.iapl.turmas.dominio.*;
+import br.uf.es.iapl.turmas.dominio.Aluno;
+import br.uf.es.iapl.turmas.dominio.Entidade;
+import br.uf.es.iapl.turmas.dominio.Professor;
+import br.uf.es.iapl.turmas.dominio.Turma;
 
 import java.io.File;
 import java.util.*;

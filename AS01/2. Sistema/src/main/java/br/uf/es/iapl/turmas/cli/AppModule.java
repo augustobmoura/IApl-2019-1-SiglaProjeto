@@ -2,8 +2,6 @@ package br.uf.es.iapl.turmas.cli;
 
 import br.uf.es.iapl.turmas.repositorio.Repositorio;
 import br.uf.es.iapl.turmas.serializador.fixedlentxt.SerializadorFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -12,29 +10,25 @@ import java.util.Optional;
 
 public class AppModule {
 
-  private final EntityManagerFactory emFactory;
+  final EntityManagerFactory emFactory;
 
-  private final Repositorio repositorio;
+  final Repositorio repositorio;
 
-  private final SerializadorFactory serializadorFactory;
+  final SerializadorFactory serializadorFactory;
 
-  private final OpcoesLinhaComando opcoesLinhaComando;
-  private final Optional<File> entrada;
+  final OpcoesLinhaComando opcoesLinhaComando;
+  final Optional<File> entrada;
 
-  private final Class classe;
-
-  private final ObjectMapper jsonMapper;
-  private final ObjectMapper xmlMapper = new XmlMapper();
+  final Class classe;
 
   public AppModule(final String[] args) {
-    opcoesLinhaComando = new OpcoesLinhaComando(args);
     emFactory = Persistence
         .createEntityManagerFactory("org.hibernate.tutorial.jpa");
     repositorio = new Repositorio(emFactory.createEntityManager());
     serializadorFactory = new SerializadorFactory(repositorio);
+    opcoesLinhaComando = new OpcoesLinhaComando(args);
     entrada = opcoesLinhaComando.getInput();
     classe = opcoesLinhaComando.getTabelaAlvo();
-    jsonMapper = new ObjectMapper();
   }
 
   public EntityManagerFactory getEmFactory() {
@@ -59,13 +53,5 @@ public class AppModule {
 
   public Class getClasse() {
     return classe;
-  }
-
-  public ObjectMapper getJsonMapper() {
-    return jsonMapper;
-  }
-
-  public ObjectMapper getXmlMapper() {
-    return xmlMapper;
   }
 }

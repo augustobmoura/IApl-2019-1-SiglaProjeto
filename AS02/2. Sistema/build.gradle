@@ -21,6 +21,9 @@ repositories {
   jcenter()
 }
 
+sourceCompatibility = 11
+targetCompatibility = 11
+
 dependencies {
   // This dependency is found on compile classpath of this component and consumers.
   implementation 'com.google.guava:guava:27.0.1-jre'
@@ -40,7 +43,7 @@ dependencies {
   testImplementation 'junit:junit:4.12'
 }
 
-final String principal = 'br.uf.es.iapl.turmas.cli.App'
+final String principal = 'br.uf.es.iapl.turmas.cli.AppJson'
 
 // Define the main class for the application
 mainClassName = principal
