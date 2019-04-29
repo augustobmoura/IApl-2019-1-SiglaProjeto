@@ -26,12 +26,17 @@ public class Repositorio {
   }
 
   public <T extends Entidade> T salvar(final T entidade) {
+    entityManager.getTransaction().begin();
+
+    T e = entidade;
     if (entidade.getId() == null) {
       entityManager.persist(entidade);
-      return entidade;
     } else {
-      return entityManager.merge(entidade);
+      e = entityManager.merge(entidade);
     }
+
+    entityManager.getTransaction().commit();
+    return e;
   }
 
   public <I extends Serializable, T extends Entidade<I>> T encontrarPorId(
