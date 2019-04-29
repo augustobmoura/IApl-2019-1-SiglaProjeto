@@ -3,6 +3,7 @@ package br.uf.es.iapl.turmas.cli;
 import br.uf.es.iapl.turmas.repositorio.Repositorio;
 import br.uf.es.iapl.turmas.serializador.fixedlentxt.SerializadorFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -23,6 +24,7 @@ public class AppModule {
   private final Class classe;
 
   private final ObjectMapper jsonMapper;
+  private final ObjectMapper xmlMapper = new XmlMapper();
 
   public AppModule(final String[] args) {
     opcoesLinhaComando = new OpcoesLinhaComando(args);
@@ -61,5 +63,9 @@ public class AppModule {
 
   public ObjectMapper getJsonMapper() {
     return jsonMapper;
+  }
+
+  public ObjectMapper getXmlMapper() {
+    return xmlMapper;
   }
 }
