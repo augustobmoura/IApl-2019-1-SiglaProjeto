@@ -43,7 +43,7 @@ dependencies {
   testImplementation 'junit:junit:4.12'
 }
 
-final String principal = 'br.uf.es.iapl.turmas.cli.App'
+final String principal = 'br.uf.es.iapl.turmas.cli.AppJson'
 
 // Define the main class for the application
 mainClassName = principal

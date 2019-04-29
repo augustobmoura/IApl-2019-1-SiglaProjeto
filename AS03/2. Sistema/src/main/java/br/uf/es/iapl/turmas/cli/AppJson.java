@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.type.CollectionType;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
@@ -32,8 +33,7 @@ public class AppJson {
       Repositorio repo = appModule.getRepositorio();
       ObjectMapper jsonMapper = appModule.getJsonMapper();
       CollectionType type = jsonMapper.getTypeFactory().constructCollectionType(List.class, appModule.getClasse());
-
-      for (Entidade item : (List<? extends Entidade>) jsonMapper.readValue(System.in, type)) {
+      for (Entidade item : (List<? extends Entidade>) jsonMapper.readValue(appModule.getEntrada().get(), type)) {
         repo.salvar(item);
       }
     }

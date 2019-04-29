@@ -26,7 +26,7 @@ public class Repositorio {
   }
 
   public <T extends Entidade> T salvar(final T entidade) {
-    if (entidade.getId() != null) {
+    if (entidade.getId() == null) {
       entityManager.persist(entidade);
       return entidade;
     } else {
