@@ -4,9 +4,16 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
+/**
+ * Classe que representa uma Turma. A turma implementa uma entidade serializável.
+ * A turma possui um identificador gerado, nome, um professor e um conjunto de amigos.
+ */
 @Entity
 public class Turma implements Entidade<Long> {
 
+  /**
+   * Getters and Setters.
+   */
   @Id
   @GeneratedValue
   private Long id;

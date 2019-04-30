@@ -3,6 +3,10 @@ package br.uf.es.iapl.turmas.dominio;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Classe Professor, extende uma pessoa e adiciona
+ * o atributo de especialidade do professor.
+ */
 @Entity
 public class Professor extends Pessoa {
 

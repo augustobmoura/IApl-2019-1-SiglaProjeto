@@ -7,9 +7,20 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+/**
+ * Classe Pessoa, implementa uma serialização e uma entidade com o
+ * id de serialização LONG.
+ */
 @MappedSuperclass
 public abstract class Pessoa implements Serializable, Entidade<Long> {
 
+  /**
+   * Getters and Setters.
+   */
+
+  /**
+   * Atributo identificador incremental.
+   */
   @Id
   @GeneratedValue(generator = "increment")
   private Long id;
